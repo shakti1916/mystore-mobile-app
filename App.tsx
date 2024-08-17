@@ -6,18 +6,17 @@
  */
 
 import React from 'react';
-import { Text } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import AppContainer from './AppContainer';
 
 
 function App(): React.JSX.Element {
 
 
   return (
-    <>
-    <Text>
-      Hello
-    </Text>
-    </>
+    <GestureHandlerRootView>
+      <AppContainer/>
+    </GestureHandlerRootView>
 
   );
 }
