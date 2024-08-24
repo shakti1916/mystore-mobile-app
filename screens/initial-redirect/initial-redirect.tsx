@@ -1,8 +1,7 @@
 import { StackNavigationProp } from '@react-navigation/stack';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { AppStackParamList, RouteList } from '../../partials/navigation/navigation-stack';
-import LoginScreen from '../account/login-screen';
-import SplashView from '../../partials/splash/splash-view';
+import SplashView from '../../component/splash/splash-view';
 
 type NavigationProps = StackNavigationProp<AppStackParamList,RouteList.LoginStack>
 
@@ -11,20 +10,18 @@ type Props = {
 }
 
 const InitialRedirectScreen = (props:Props) => {
-  const [isShowSplash,setIsShowSplash] = useState<boolean>(true);
 
   useEffect(()=>{
     setTimeout(()=>{
-      setIsShowSplash(false);
       props.navigation.navigate(RouteList.LoginStack,{screen:RouteList.LoginScreen});
     },1000);
 
   },);
   return (
     <>
-    {isShowSplash ? <SplashView/> : <LoginScreen/>}
+     <SplashView/>
     </>
   );
 };
 
-export default InitialRedirectScreen
+export default InitialRedirectScreen;
